@@ -10,7 +10,7 @@ public class Grid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Build();
     }
     public void Build()
     {
