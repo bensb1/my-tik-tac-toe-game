@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Text mLabel;
+    public Button mButton;
+    public Main mMain;
 
-    // Update is called once per frame
-    void Update()
+   public void Fell()
     {
-        
+        mButton.interactable = false;
+
+        mLabel.text = mMain.GetTurnCharacter();
+
+        mMain.Switch();
     }
 }
