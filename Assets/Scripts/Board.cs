@@ -19,5 +19,14 @@ public class Board : MonoBehaviour
         }
     }
 
+    public bool CheckForWinner()
+    {
+        return false;
+    }
+  private bool CheckVaule(int firstIndex, int secondIndex)
+    {
+        return false;
+    }
+
   
 }

@@ -16,6 +16,8 @@ public class Main : MonoBehaviour
     {
         mTurnCount++;
 
+        mBoard.CheckForWinner();
+
         mXTurn = !mXTurn;
     }
     public string GetTurnCharacter()
