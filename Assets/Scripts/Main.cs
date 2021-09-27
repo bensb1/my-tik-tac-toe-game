@@ -16,7 +16,11 @@ public class Main : MonoBehaviour
     {
         mTurnCount++;
 
-        mBoard.CheckForWinner();
+         bool hasWinner = mBoard.CheckForWinner();
+        if (hasWinner)
+        {
+            print("Winner!");
+        }
 
         mXTurn = !mXTurn;
     }
