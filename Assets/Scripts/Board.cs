@@ -18,7 +18,15 @@ public class Board : MonoBehaviour
             mcells[i].mMain = main;
         }
     }
+    public void Reset()
+    {
+        foreach( Cell cell in mcells)
+        {
+            cell.mLabel.text = "";
 
+            cell.mButton.interactable = true;
+        }
+    }
     public bool CheckForWinner()
     {
         int i = 0;
@@ -44,9 +52,15 @@ public class Board : MonoBehaviour
 
             return true;
         }
-        //diaganol
+        // left diaganol
+        if (CheckVaules(0, 4) && CheckVaules(0, 8))
+            return true;
 
-            return false;
+        // right diganoal
+        if (CheckVaules(2, 4) && CheckVaules(2, 6))
+            return true;
+
+        return false;
     }
   private bool CheckVaules(int firstIndex, int secondIndex)
     {

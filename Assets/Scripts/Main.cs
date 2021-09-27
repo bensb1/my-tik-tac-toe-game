@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
     public Board mBoard;
     private bool mXTurn = true;
     private int mTurnCount = 0;
+    public GameObject mWinner;
 
     private void Awake()
     {
@@ -17,9 +19,11 @@ public class Main : MonoBehaviour
         mTurnCount++;
 
          bool hasWinner = mBoard.CheckForWinner();
-        if (hasWinner)
+    if(hasWinner || mTurnCount == 9)
         {
-            print("Winner!");
+            // end game
+            StartCoroutine(EndGame(hasWinner));
+            return;
         }
 
         mXTurn = !mXTurn;
@@ -34,5 +38,25 @@ public class Main : MonoBehaviour
         {
             return "O";
         }
+    }
+
+    private IEnumerator EndGame(bool hasWinner)
+    {
+        Text winnerLabel = mWinner.GetComponentInChildren<Text>();
+        if(hasWinner)
+        {
+            winnerLabel.text = GetTurnCharacter() + "" + "Won";
+        }
+        else
+        {
+            winnerLabel.text = "Draw!";
+        }
+        mWinner.SetActive(true);
+        WaitForSeconds wait = new WaitForSeconds(5.0f);
+        yield return wait;
+
+        mBoard.Reset();
+        mTurnCount = 0;
+        mWinner.SetActive(false);
     }
 }
