@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     public Board mBoard;
+    public Text mCursor;
     private bool mXTurn = true;
     private int mTurnCount = 0;
     public GameObject mWinner;
@@ -13,6 +14,7 @@ public class Main : MonoBehaviour
     private void Awake()
     {
         mBoard.Build(this);
+        mCursor.text = GetTurnCharacter();
     }
     public void Switch()
     {
@@ -27,6 +29,7 @@ public class Main : MonoBehaviour
         }
 
         mXTurn = !mXTurn;
+        mCursor.text = GetTurnCharacter();
     }
     public string GetTurnCharacter()
     {

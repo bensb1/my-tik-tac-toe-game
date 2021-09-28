@@ -864,6 +864,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6701815984225393457}
     - target: {fileID: 6290279548138017292, guid: de1ebfc38784549469d78826439dcf6c, type: 3}
+      propertyPath: mCursor
+      value: 
+      objectReference: {fileID: -182635056453209238, guid: 2972faa66bc524441b4c1b3162038a4d, type: 3}
+    - target: {fileID: 6290279548138017292, guid: de1ebfc38784549469d78826439dcf6c, type: 3}
       propertyPath: mWinner
       value: 
       objectReference: {fileID: 1732151873}
